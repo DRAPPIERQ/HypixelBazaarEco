@@ -45,7 +45,7 @@
             <tr>
               <th>Item</th>
               <th>Presize item</th>
-              <th>Profit</th>
+              <th>Profit per unit</th>
               <th>Approximate profit for maximum purchase</th>
             </tr>
           </thead>
@@ -160,17 +160,31 @@ export default {
       if (item.profit.item > (item.profit.ec_item / 5) && item.profit.item > (item.profit.block / 9)) {
         biggest.profit_id = item.npc.item_id
         biggest.profit = item.profit.item
-        biggest.max_profit = 640*item.profit.item
+        biggest.max_profit = 640 * item.profit.item
       } else if ((item.profit.ec_item / 5) > item.profit.item && (item.profit.ec_item / 5) > (item.profit.block / 9)) {
         biggest.profit_id = item.npc.ec_item_id
         biggest.profit = item.profit.ec_item
-        if (true) {
-          biggest.max_profit =0
+        if (item.npc.ec_item == 'ENCHANTED_BREAD') {
+          biggest.max_profit = 10 * item.profit.ec_item
+        } else if (item.npc.ec_item == 'ENCHANTED_STRING') {
+          biggest.max_profit = 3 * item.profit.ec_item_id
+        } else if (item.npc.ec_item == 'ENCHANTED_PACKED_ICE') {
+          biggest.max_profit = 36 * item.profit.ec_item
+        } else if (item.npc.ec_item == 'ENCHANTED_QUARTZ_BLOCK') {
+          biggest.max_profit = 16 * item.profit.ec_item
+        } else {
+          biggest.max_profit = 4 * item.profit.ec_item
         }
       } else if ((item.profit.block / 9) > (item.profit.ec_item / 5) && (item.profit.block / 9) > item.profit.item) {
         biggest.profit_id = item.npc.block_id
         biggest.profit = item.profit.block
+        if (item.npc.block_id == 'ENCHANTED_PAPER') {
+          biggest.max_profit = 3 * item.profit.block
+        } else {
+          biggest.max_profit = 71 * item.profit.block
+        }
       }
+      console.log(biggest)
       return biggest
     },
 
