@@ -153,38 +153,62 @@ export default {
 
     getBiggestProfit (item) {
       let biggest = {
-        profit_id: '',
-        profit: 0,
-        max_profit: 0
-      }
-      if (item.profit.item > (item.profit.ec_item / 5) && item.profit.item > (item.profit.block / 9)) {
-        biggest.profit_id = item.npc.item_id
-        biggest.profit = item.profit.item
-        biggest.max_profit = 640 * item.profit.item
-      } else if ((item.profit.ec_item / 5) > item.profit.item && (item.profit.ec_item / 5) > (item.profit.block / 9)) {
-        biggest.profit_id = item.npc.ec_item_id
-        biggest.profit = item.profit.ec_item
-        if (item.npc.ec_item == 'ENCHANTED_BREAD') {
-          biggest.max_profit = 10 * item.profit.ec_item
-        } else if (item.npc.ec_item == 'ENCHANTED_STRING') {
-          biggest.max_profit = 3 * item.profit.ec_item_id
-        } else if (item.npc.ec_item == 'ENCHANTED_PACKED_ICE') {
-          biggest.max_profit = 36 * item.profit.ec_item
-        } else if (item.npc.ec_item == 'ENCHANTED_QUARTZ_BLOCK') {
-          biggest.max_profit = 16 * item.profit.ec_item
-        } else {
-          biggest.max_profit = 4 * item.profit.ec_item
-        }
-      } else if ((item.profit.block / 9) > (item.profit.ec_item / 5) && (item.profit.block / 9) > item.profit.item) {
-        biggest.profit_id = item.npc.block_id
-        biggest.profit = item.profit.block
-        if (item.npc.block_id == 'ENCHANTED_PAPER') {
-          biggest.max_profit = 3 * item.profit.block
-        } else {
-          biggest.max_profit = 71 * item.profit.block
+        item: {
+          profit_id: '',
+          profit: 0,
+          max_profit: 0
+        },
+        ec_item: {
+          profit_id: '',
+          profit: 0,
+          max_profit: 0
+        },
+        block: {
+          profit_id: '',
+          profit: 0,
+          max_profit: 0
         }
       }
-      console.log(biggest)
+      // SET ITEM BIGGEST
+      biggest.item.profit_id = item.npc.item_id
+      biggest.item.profit = item.profit.item
+      biggest.item.max_profit = 640 * item.profit.item
+      // SET EC ITEM BIGGEST
+      biggest.ec_item.profit_id = item.npc.ec_item_id
+      biggest.ec_item.profit = item.profit.ec_item
+      if (item.npc.ec_item == 'ENCHANTED_BREAD') {
+        biggest.ec_item.max_profit = 10 * item.profit.ec_item
+      } else if (item.npc.ec_item == 'ENCHANTED_STRING') {
+        biggest.ec_item.max_profit = 3 * item.profit.ec_item_id
+      } else if (item.npc.ec_item == 'ENCHANTED_PACKED_ICE') {
+        biggest.ec_item.max_profit = 36 * item.profit.ec_item
+      } else if (item.npc.ec_item == 'ENCHANTED_QUARTZ_BLOCK') {
+        biggest.ec_item.max_profit = 16 * item.profit.ec_item
+      } else {
+        biggest.ec_item.max_profit = 4 * item.profit.ec_item
+      }
+      // SET BLOCK BIGGEST
+      biggest.block.profit_id = item.npc.block_id
+      biggest.block.profit = item.profit.block
+      if (item.npc.block_id == 'ENCHANTED_PAPER') {
+        biggest.block.max_profit = 3 * item.profit.block
+      } else {
+        biggest.block.max_profit = 71 * item.profit.block
+      }
+      // GET THE BIGGEST PROFIT
+      if (biggest.item.max_profit > biggest.ec_item.max_profit && biggest.item.max_profit > biggest.block.max_profit) {
+        biggest = biggest.item
+      } else if (biggest.ec_item.max_profit > biggest.item.max_profit && biggest.ec_item.max_profit > biggest.block.max_profit) {
+        biggest = biggest.ec_item
+      } else if (biggest.block.max_profit > biggest.ec_item.max_profit && biggest.block.max_profit > biggest.item.max_profit) {
+        biggest = biggest.block
+      } else {
+        biggest = {
+          profit_id: '',
+          profit: 0,
+          max_profit: 0
+        }
+      }
       return biggest
     },
 

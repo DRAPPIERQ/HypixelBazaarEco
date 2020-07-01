@@ -575,9 +575,9 @@ export default {
         type_id: 3,
         name: 'Bone',
         npc: {
-          item_id: 'ROTTEN_FLESH',
+          item_id: 'BONE',
           item: 8,
-          ec_item_id: 'ENCHANTED_ROTTEN_FLESH',
+          ec_item_id: 'ENCHANTED_BONE',
           ec_item: 1280,
           block_id: null,
           block: 0,
@@ -819,42 +819,6 @@ export default {
         profit: {
           item: (getters.getBazaarProducts()['RAW_FISH'] ? getters.getBazaarProducts()['RAW_FISH'].quick_status.sellPrice : 0) - 20,
           ec_item: (getters.getBazaarProducts()['ENCHANTED_RAW_FISH'] ? getters.getBazaarProducts()['ENCHANTED_RAW_FISH'].quick_status.sellPrice : 0) - 3200,
-          block: 0
-        }
-      },
-      {
-        type_name: 'Fishing',
-        type_id: 5,
-        name: 'Raw Fish',
-        npc: {
-          item_id: 'RAW_FISH',
-          item: 20,
-          ec_item_id: 'ENCHANTED_RAW_FISH',
-          ec_item: 3200,
-          block_id: null,
-          block: 0,
-        },
-        profit: {
-          item: (getters.getBazaarProducts()['RAW_FISH'] ? getters.getBazaarProducts()['RAW_FISH'].quick_status.sellPrice : 0) - 20,
-          ec_item: (getters.getBazaarProducts()['ENCHANTED_RAW_FISH'] ? getters.getBazaarProducts()['ENCHANTED_RAW_FISH'].quick_status.sellPrice : 0) - 3200,
-          block: 0
-        }
-      },
-      {
-        type_name: 'Fishing',
-        type_id: 5,
-        name: 'Raw Fish',
-        npc: {
-          item_id: 'RAW_FISH:1',
-          item: 30,
-          ec_item_id: 'ENCHANTED_RAW_SALMON',
-          ec_item: 4800,
-          block_id: null,
-          block: 0,
-        },
-        profit: {
-          item: (getters.getBazaarProducts()['RAW_FISH:1'] ? getters.getBazaarProducts()['RAW_FISH:1'].quick_status.sellPrice : 0) - 30,
-          ec_item: (getters.getBazaarProducts()['ENCHANTED_RAW_SALMON'] ? getters.getBazaarProducts()['ENCHANTED_RAW_SALMON'].quick_status.sellPrice : 0) - 4800,
           block: 0
         }
       },
