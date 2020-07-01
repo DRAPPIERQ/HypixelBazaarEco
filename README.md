@@ -1,6 +1,7 @@
-# hypixel-bazaar-eco
+# [hypixel-bazaar-eco](https://hypixel-bazaar-eco.netlify.app/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ef13ac0a-0325-483b-9d62-dfb1ac9fd2ca/deploy-status)](https://app.netlify.com/sites/hypixel-bazaar-eco/deploys)
 
-> A Vue.js project
+> A [Vue.js](https://vuejs.org/) project made to compare NPCs buying price to the Baazars sellings price
 
 ## Build Setup
 
