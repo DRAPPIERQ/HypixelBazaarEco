@@ -4,7 +4,7 @@
 import axios from 'axios'
 
 const HYPIXEL_ENV = 'https://api.hypixel.net'
-const HYPIXEL_KEY = 'key=323cb45e-dc45-4555-81e5-f8f4a2748bac'
+const HYPIXEL_KEY = 'key=fc21fdd9-7018-4ff9-b439-233cf226fb90'
 
 // Vue.prototype.$http = axios
 
